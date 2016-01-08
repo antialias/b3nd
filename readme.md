@@ -7,6 +7,8 @@ _(pronounced "bend" — The 3 is for the 3 "b"s in <b>B</b>ack<b>b</b>one <b>b</
 ```sh
 npm install --save b3nd
 ```
+##requirements
+`b3nd` has only been tested when bundled with [`webpack`](https://webpack.github.io/) and when run on evergreen browsers.
 
 ##usage:
 ```js
