@@ -16,7 +16,11 @@ module.exports = [
         name: 'prop',
         update : function () {
             forEach(arguments[0], function (attrValue, attrName) {
-                this.setAttribute(attrName, attrValue);
+                if (!attrValue) {
+                    this.removeAttribute(attrName);
+                } else {
+                    this.setAttribute(attrName, true);
+                }
             }.bind(this))
         }
     }, {
