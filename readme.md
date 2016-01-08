@@ -1,5 +1,7 @@
 # b3nd
-knockout-style bindings for Backbone models and views
+ [`knockout`](http://knockoutjs.com/)-style bindings for Backbone models and views
+
+_(pronounced (bend), the 3 is the 3 "b"s in __B__ack__b__one __b__indings)_
 
 ##installation:
 ```sh
@@ -13,10 +15,9 @@ const b3nd = require('b3nd');
 bind.view binds your model's data to DOM elements
 call bind with your view to bind your view to your model's change events:
 ```js
-var bind = require('bunsen/helpers/bind');
 var MyView = Backbone.View.extend({
   initialize : function () {
-    bind(this);
+    b3nd(this); // where the magic happens
   },
 });
 ```
@@ -63,3 +64,10 @@ the result of computeds can be referenced in the binding data on a global called
 ```html
 <div data-model-bind='text : computed.fullName'></div>
 ```
+
+## API
+a call to `b3nd` returns an instance of the internal class B3ndContext, which has the following methods:
+
+* `on`: enable the bindings until `off` is called
+* `off`: disable the bindings until `on` is called
+* `forceUpdate`: force the bindings to update immediately
