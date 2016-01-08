@@ -17,7 +17,7 @@ const b3nd = require('b3nd');
 bind.view binds your model's data to DOM elements
 call bind with your view to bind your view to your model's change events:
 ```js
-var MyView = Backbone.View.extend({
+const MyView = Backbone.View.extend({
   initialize : function () {
     b3nd(this); // where the magic happens
   },
@@ -68,7 +68,7 @@ the result of computeds can be referenced in the binding data on a global called
 ```
 
 ## API
-a call to `b3nd` returns an instance of the internal class B3ndContext, which has the following methods:
+a call to `b3nd` returns an instance of the internal class `B3ndContext``, which has the following methods:
 
 * `on`: enable the bindings until `off` is called
 * `off`: disable the bindings until `on` is called
