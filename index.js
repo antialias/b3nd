@@ -6,7 +6,7 @@ var forEach = require('lodash.foreach');
 var isArray = require('lodash.isarray');
 var omit = require('lodash.omit');
 var reduce = require('lodash.reduce');
-var localeval = require('localeval');
+var globaleval = eval; // eval called indirectly evaluates globally in es5+
 var result = require('lodash.result');
 var coreB3ndings = require('./b3ndings/core');
 var boundaryKey = '__b3nd-boundary';
@@ -19,6 +19,7 @@ var iterateB3ndings = function (view, model, cb) {
     var b3ndResult;
     var scopeObj;
     scopeObj = {
+        testing: 'thomashallock',
         b3ndResult: undefined,
         view: view,
         state: stateObj,
@@ -46,11 +47,23 @@ var iterateB3ndings = function (view, model, cb) {
         }
         return true;
     }).forEach(function (el) {
+        var priorGlobalValues = {}
+        var restoreGlobals = function () {
+          forEach(priorGlobalValues, function (globalVarValue, globalVarName) {
+              global[globalVarName] = priorGlobalValues[globalVarName];
+          });
+        };
+        forEach(scopeObj, function (globalVarValue, globalVarName) {
+            priorGlobalValues[globalVarName] = global[globalVarName];
+            global[globalVarName] = globalVarValue;
+        });
         try {
-            b3ndResult = localeval("({" + el.getAttribute('data-model-bind') + "});", scopeObj);
+            b3ndResult = globaleval("({" + el.getAttribute('data-model-bind') + "});");
         } catch (e) {
+            restoreGlobals();
             throw new EvalError("syntax error in b3nding: " + el.getAttribute('data-model-bind') + " : " + e.fileName + ":" + e.lineNumber + ": " + e.message);
         }
+        restoreGlobals();
         forEach(b3ndResult, function (b3ndingValue, b3ndingName) {
             if (!this.b3ndings[b3ndingName]) {
                 console.warn('undefined b3nding: ' + b3ndingName);

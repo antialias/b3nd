@@ -25,7 +25,6 @@
   "dependencies": {
     "classlist": "^1.0.1",
     "element-data-store": "0.0.6",
-    "localeval": "git+ssh://git@github.com/antialias/localeval.git#check-process-browser-property",
     "lodash.assign": "^3.2.0",
     "lodash.debounce": "^3.1.1",
     "lodash.foreach": "^3.0.3",
