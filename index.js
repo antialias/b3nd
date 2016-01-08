@@ -1,6 +1,5 @@
 "use strict";
 
-var elementDataStore = require('element-data-store');
 var assign = require('lodash.assign');
 var forEach = require('lodash.foreach');
 var isArray = require('lodash.isarray');
@@ -32,7 +31,7 @@ var iterateB3ndings = function (view, model, cb) {
             return memo;
         }, {})
     };
-    elementDataStore.set(view.el, boundaryKey, true); // prevents bound parent views from messing with us
+    view.el[boundaryKey] = true; // prevents bound parent views from messing with us
     boundElements = Array.prototype.slice.call(view.el.querySelectorAll(boundElementSelector));
     if (view.el.matches(boundElementSelector)) {
         boundElements.push(view.el);
@@ -40,7 +39,7 @@ var iterateB3ndings = function (view, model, cb) {
     boundElements.filter(function (el) {
         // filter out any elements that are on the other side of a b3nding boundary
         while (el && el !== view.el) {
-            if (elementDataStore.get(el, boundaryKey)) {
+            if (el[boundaryKey]) {
                 return false;
             }
             el = el.parentNode;
