@@ -49,7 +49,8 @@ var iterateB3ndings = function (view, model, cb) {
         try {
             b3ndResult = localeval("({" + el.getAttribute('data-model-bind') + "});", scopeObj);
         } catch (e) {
-            throw new EvalError("syntax error in b3nding: " + el.getAttribute('data-model-bind'), e.fileName, e.lineNumber);
+            debugger;
+            throw new EvalError("syntax error in b3nding: " + el.getAttribute('data-model-bind'), e.fileName + ":" + e.lineNumber + ": " + e.message);
         }
         forEach(b3ndResult, function (b3ndingValue, b3ndingName) {
             if (!this.b3ndings[b3ndingName]) {
