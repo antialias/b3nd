@@ -1,6 +1,7 @@
 "use strict";
 var forEach = require('lodash.foreach');
 var debounce = require('lodash.debounce');
+var classList = require('classlist');
 
 module.exports = [
     {
@@ -36,7 +37,7 @@ module.exports = [
         name: 'css',
         update : function (bindingData) {
             forEach(bindingData, function (v, k) {
-                this.classList[v ? 'add' : 'remove'](k);
+                classList(this)[v ? 'add' : 'remove'](k);
             }, this);
         }
     }, {
