@@ -68,7 +68,7 @@ the result of computeds can be referenced in the binding data on a global called
 ```
 
 ## API
-a call to `b3nd` returns an instance of the internal class `B3ndContext``, which has the following methods:
+a call to `b3nd` returns an instance of the internal class `B3ndContext`, which has the following methods:
 
 * `on`: enable the bindings until `off` is called
 * `off`: disable the bindings until `on` is called
