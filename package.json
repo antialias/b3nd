@@ -1,0 +1,36 @@
+{
+  "name": "b3nd",
+  "version": "1.0.0",
+  "description": "knockout-style bindings for Backbone models and views",
+  "author": "1stdibs.com, Inc.",
+  "scripts": {
+    "test": "mocha",
+    "gitlint": "node_modules/.bin/dibslint --git --warnings",
+    "lint": "dibslint --root=."
+  },
+  "main": "index.js",
+  "pre-commit": {
+    "run": [
+      "gitlint"
+    ]
+  },
+  "devDependencies": {
+    "backbone-model": "^1.0.10",
+    "dibslint": "^1.2.4",
+    "jsdom": "^7.2.2",
+    "mocha": "^2.3.4",
+    "pre-commit": "^1.1.2",
+    "sinon": "^1.17.2"
+  },
+  "dependencies": {
+    "element-data-store": "0.0.6",
+    "localeval": "^15.2.3",
+    "lodash.assign": "^3.2.0",
+    "lodash.debounce": "^3.1.1",
+    "lodash.foreach": "^3.0.3",
+    "lodash.isarray": "^3.0.4",
+    "lodash.omit": "^3.1.0",
+    "lodash.reduce": "^3.1.2",
+    "lodash.result": "^3.1.2"
+  }
+}
