@@ -1,7 +1,7 @@
 # b3nd
  [`knockout`](http://knockoutjs.com/)-style bindings for Backbone models and views
 
-_(pronounced (bend), the 3 is the 3 "b"s in __B__ack__b__one __b__indings)_
+_(pronounced "bend" — The 3 is for the 3 "b"s in <b>B</b>ack<b>b</b>one <b>b</b>indings.)_
 
 ##installation:
 ```sh
