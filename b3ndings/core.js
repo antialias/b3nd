@@ -15,22 +15,22 @@ module.exports = [
         // binds to object attributes. Attributes should be specified as a map from key (attribute name) to value (attribute value) in the binding expression. Attributes are set using Element.prototype.setAttribute
         name: 'prop',
         update : function () {
-            forEach(arguments[0], function (attrName, attrValue) {
-                this.setAttribute(attrValue, attrName);
+            forEach(arguments[0], function (attrValue, attrName) {
+                this.setAttribute(attrName, attrValue);
             }.bind(this))
         }
     }, {
         name: 'attr',
         update : function () {
-            forEach(arguments[0], function (attrName, attrValue) {
-                this.setAttribute(attrValue, attrName);
+            forEach(arguments[0], function (attrValue, attrName) {
+                this.setAttribute(attrName, attrValue);
             }.bind(this))
         }
     }, {
         name: 'style',
         update : function () {
-            forEach(arguments[0], function (attrName, attrValue) {
-                this.setAttribute(attrValue, attrName);
+            forEach(arguments[0], function (attrValue, attrName) {
+                this.setAttribute(attrName, attrValue);
             }.bind(this))
         }
     }, {
