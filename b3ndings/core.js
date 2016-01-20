@@ -21,21 +21,21 @@ module.exports = [
                 } else {
                     this.setAttribute(attrName, true);
                 }
-            }.bind(this))
+            }.bind(this));
         }
     }, {
         name: 'attr',
         update : function () {
             forEach(arguments[0], function (attrValue, attrName) {
                 this.setAttribute(attrName, attrValue);
-            }.bind(this))
+            }.bind(this));
         }
     }, {
         name: 'style',
         update : function () {
             forEach(arguments[0], function (attrValue, attrName) {
                 this.setAttribute(attrName, attrValue);
-            }.bind(this))
+            }.bind(this));
         }
     }, {
         name: 'css',
@@ -116,7 +116,7 @@ module.exports = [
         init : function (bindingData, model) {
             this.addEventListener('change', function () {
                 model.set(bindingData, this.value);
-            }.bind(this))
+            }.bind(this));
         }
     }
 ];

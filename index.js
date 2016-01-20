@@ -46,7 +46,7 @@ var iterateB3ndings = function (view, model, cb) {
         }
         return true;
     }).forEach(function (el) {
-        var priorGlobalValues = {}
+        var priorGlobalValues = {};
         var restoreGlobals = function () {
           forEach(priorGlobalValues, function (globalVarValue, globalVarName) {
               global[globalVarName] = priorGlobalValues[globalVarName];
