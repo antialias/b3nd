@@ -1,9 +1,13 @@
 "use strict";
-var b3nd = require('../index');
+var jsdom = require("jsdom").jsdom;
+var document = jsdom(undefined, {});
+var window = document.defaultView;
 var Model = require('backbone-model').Model;
 var sinon = require('sinon');
-var jsdom = require("jsdom").jsdom;
 var assert = require('assert');
+var b3nd;
+global.Element = window.Element;
+b3nd = require('../index');
 describe("b3nd", function () {
     var api;
     var view;
@@ -12,13 +16,9 @@ describe("b3nd", function () {
     var barBinding;
     var View; // fake Backbone view constructor
     var cid = 0;
-    var window;
-    var document;
     var sandbox;
     beforeEach(function () {
         sandbox = sinon.sandbox.create();
-        document = jsdom(undefined, {});
-        window = document.defaultView;
         View = function (options) {
             this.el = document.createElement('div');
             this.model = options.model;

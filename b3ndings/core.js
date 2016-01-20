@@ -2,6 +2,7 @@
 var forEach = require('lodash.foreach');
 var debounce = require('lodash.debounce');
 var classList = require('classlist');
+var matches = require('matches-selector');
 
 module.exports = [
     {
@@ -83,7 +84,7 @@ module.exports = [
         // binds the value of an input field to the value of the binding expression
         name: 'val',
         update: function (bindingData) {
-            if (this.matches(':radio,:checkbox') && !this.matches(':checked')) { // TODO: handle this case when the need arises
+            if (this.matches(':radio,:checkbox') && !matches(this, ':checked')) { // TODO: handle this case when the need arises
                 console.warn("val binding for checkable elements is not yet supported");
                 return;
             }

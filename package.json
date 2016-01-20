@@ -30,6 +30,7 @@
     "lodash.isarray": "^3.0.4",
     "lodash.omit": "^3.1.0",
     "lodash.reduce": "^3.1.2",
-    "lodash.result": "^3.1.2"
+    "lodash.result": "^3.1.2",
+    "matches-selector": "^1.0.0"
   }
 }

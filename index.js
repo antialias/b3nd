@@ -10,6 +10,7 @@ var result = require('lodash.result');
 var coreB3ndings = require('./b3ndings/core');
 var boundaryKey = '__b3nd-boundary';
 var root = typeof global !== 'undefined' ? global : window;
+var matches = require('matches-selector');
 var iterateB3ndings = function (view, model, cb) {
     var boundElementSelector = "[data-model-bind]";
     var modelObj = result(model, 'toJSON');
@@ -33,7 +34,7 @@ var iterateB3ndings = function (view, model, cb) {
     };
     view.el[boundaryKey] = true; // prevents bound parent views from messing with us
     boundElements = Array.prototype.slice.call(view.el.querySelectorAll(boundElementSelector));
-    if (view.el.matches(boundElementSelector)) {
+    if (matches(view.el, boundElementSelector)) {
         boundElements.push(view.el);
     }
     boundElements.filter(function (el) {
