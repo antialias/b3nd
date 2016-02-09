@@ -35,7 +35,7 @@ var iterateB3ndings = function (view, model, cb) {
     view.el[boundaryKey] = true; // prevents bound parent views from messing with us
     boundElements = Array.prototype.slice.call(view.el.querySelectorAll(boundElementSelector));
     if (matches(view.el, boundElementSelector)) {
-        boundElements.push(view.el);
+        boundElements = [view.el].concat(boundElements);
     }
     boundElements.filter(function (el) {
         // filter out any elements that are on the other side of a b3nding boundary

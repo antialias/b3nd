@@ -199,6 +199,7 @@ describe("b3nd", function () {
                 assert.equal(api.b3ndings.fooBinding.update.firstCall.args[0], m.get('foo'));
                 assert.equal(api.b3ndings.fooBinding.update.firstCall.args[1], m);
                 assert.equal(api.b3ndings.fooBinding.update.firstCall.args[2], v);
+                sinon.assert.calledOn(api.b3ndings.fooBinding.update, el);
                 m.set('foo', 'blargh');
                 assert.equal(api.b3ndings.fooBinding.update.secondCall.args[0], m.get('foo'));
                 assert.equal(api.b3ndings.fooBinding.update.secondCall.args[1], m);
