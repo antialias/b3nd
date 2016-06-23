@@ -1,6 +1,6 @@
 {
   "name": "b3nd",
-  "version": "1.0.16",
+  "version": "1.0.17",
   "description": "knockout-style bindings for Backbone models and views",
   "author": "1stdibs.com, Inc.",
   "scripts": {
