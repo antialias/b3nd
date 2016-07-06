@@ -41,8 +41,9 @@ module.exports = [
     }, {
         name: 'css',
         update : function (bindingData) {
+            var cl = classList(this);
             forEach(bindingData, function (v, k) {
-                classList(this)[v ? 'add' : 'remove'](k);
+                cl[v ? 'add' : 'remove'].apply(cl, k.split(' '));
             }, this);
         }
     }, {
