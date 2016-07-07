@@ -207,4 +207,21 @@ describe("b3nd", function () {
             });
         });
     });
+    describe('css binding', function () {
+        beforeEach(function () {
+            model = new Model();
+            view = new View({model: model});
+            view.el.innerHTML = `<div class='testme' data-model-bind="css:{'foo bar':model.fooBar}">`;
+            api = b3nd(view);
+        });
+        it('should support keys with multiple classnames', function () {
+            const viewClassList = view.el.querySelector('.testme').classList;
+            model.set('fooBar', true);
+            assert(viewClassList.contains('foo'));
+            assert(viewClassList.contains('bar'));
+            model.set('fooBar', false);
+            assert(!viewClassList.contains('foo'));
+            assert(!viewClassList.contains('bar'));
+        });
+    });
 });

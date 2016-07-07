@@ -41,9 +41,10 @@ module.exports = [
     }, {
         name: 'css',
         update : function (bindingData) {
+            var nodeClassList = classList(this);
             forEach(bindingData, function (v, k) {
-                classList(this)[v ? 'add' : 'remove'](k);
-            }, this);
+                nodeClassList[v ? 'add' : 'remove'].apply(nodeClassList, k.split(' '));
+            });
         }
     }, {
         // if the binding expression is false, the element is hidden, otherwise the element is shown.
