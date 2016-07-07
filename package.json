@@ -5,18 +5,25 @@
   "author": "1stdibs.com, Inc.",
   "scripts": {
     "test": "mocha",
-    "gitlint": "node_modules/.bin/dibslint --git --warnings",
-    "lint": "dibslint --root=."
+    "lint": "eslint ."
   },
   "main": "index.js",
   "pre-commit": {
     "run": [
-      "gitlint"
+      "lint"
     ]
   },
   "devDependencies": {
+    "babel-eslint": "^6.1.0",
     "backbone-model": "^1.0.10",
-    "dibslint": "^1.2.4",
+    "eslint": "^2.13.1",
+    "eslint-config-1stdibs": "^3.1.1",
+    "eslint-plugin-flow-vars": "^0.4.0",
+    "eslint-plugin-flowtype": "^2.3.0",
+    "eslint-plugin-jasmine": "^1.8.1",
+    "eslint-plugin-mocha": "^2.2.0",
+    "eslint-plugin-react": "^4.3.0",
+    "eslint-plugin-require-path-exists": "^1.1.5",
     "jsdom": "^7.2.2",
     "mocha": "^2.3.4",
     "pre-commit": "^1.1.2",
