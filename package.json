@@ -5,6 +5,7 @@
   "author": "1stdibs.com, Inc.",
   "scripts": {
     "test": "mocha",
+    "coverage": "istanbul cover _mocha && istanbul check-coverage --lines 69 coverage/coverage.json",
     "lint": "eslint ."
   },
   "main": "index.js",
@@ -24,6 +25,7 @@
     "eslint-plugin-mocha": "^2.2.0",
     "eslint-plugin-react": "^4.3.0",
     "eslint-plugin-require-path-exists": "^1.1.5",
+    "istanbul": "^0.4.4",
     "jsdom": "^9.4.1",
     "mocha": "^2.3.4",
     "pre-commit": "^1.1.2",
