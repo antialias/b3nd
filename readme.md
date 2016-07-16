@@ -1,3 +1,5 @@
+[![codecov](https://codecov.io/gh/antialias/b3nd/branch/master/graph/badge.svg)](https://codecov.io/gh/antialias/b3nd)
+
 # b3nd
  [`knockout`](http://knockoutjs.com/)-style bindings for Backbone models and views
 
