@@ -10,7 +10,7 @@ var result = require('lodash.result');
 var coreB3ndings = require('./b3ndings/core');
 var boundaryKey = '__b3nd-boundary';
 var root = typeof global !== 'undefined' ? global : window;
-var matches = require('matches-selector');
+var matches = require('matches-selector-universal');
 var iterateB3ndings = function (view, model, cb) {
     var boundElementSelector = "[data-model-bind]";
     var modelObj = result(model, 'toJSON');

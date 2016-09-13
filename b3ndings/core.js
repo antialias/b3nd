@@ -2,7 +2,7 @@
 var forEach = require('lodash.foreach');
 var debounce = require('lodash.debounce');
 var classList = require('classlist');
-var matches = require('matches-selector');
+var matches = require('matches-selector-universal');
 
 module.exports = [
     {
